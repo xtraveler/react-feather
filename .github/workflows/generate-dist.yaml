@@ -25,6 +25,6 @@ jobs:
           git checkout dist
           rm -rf .github/ bin/ node_modules/ src/
           find . -maxdepth 1 -type f | xargs rm -f
-          git add -p
+          git add --all
           git commit -m "Generate dist/"
           git push origin dist
