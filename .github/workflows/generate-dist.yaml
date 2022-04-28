@@ -16,11 +16,9 @@ jobs:
         with:
           version: 14
 
-      - run: npm i -g yarn
+      - run: npm install
 
-      - run: yarn install
-
-      - run: yarn build
+      - run: npm run build
 
       - run: |
           git branch dist || true
