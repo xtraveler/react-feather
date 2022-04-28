@@ -32,4 +32,5 @@ jobs:
           git config user.email github-actions@github.com
           git add --all
           git commit -m "Generate dist/"
+          git pull origin dist --rebase || true
           git push origin dist
