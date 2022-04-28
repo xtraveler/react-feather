@@ -1,0 +1,32 @@
+name: Generate dist when master is updated
+
+on:
+  push:
+    branch:
+      - master
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/node-setup@v2
+        with:
+          version: 14
+
+      - run: npm i -g yarn
+
+      - run: yarn install
+
+      - run: yarn build
+
+      - run: |
+          git branch dist || true
+          git checkout dist
+          rm -rf .github/ bin/ node_modules/ src/
+          rm -f *
+          git add -p
+          git commit -m "Generate dist/"
+          git push origin dist
