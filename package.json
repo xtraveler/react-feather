@@ -12,7 +12,7 @@
     "build:bundle": "rm -rf build && rollup --config rollup.config.js",
     "build:es": "rm -rf dist && babel src --out-dir dist --copy-files",
     "build": "concurrently \"npm:build:*\"",
-    "prepare": "$npm_exepath install && $npm_execpath build:es"
+    "prepare": "$npm_execpath install babel-cli && $npm_execpath build:es"
   },
   "files": [
     "dist",
@@ -60,6 +60,7 @@
     "react": "^16.8.6 || ^17 || ^18"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "prop-types": "^15.7.2"
   }
 }
