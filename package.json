@@ -12,7 +12,7 @@
     "build:bundle": "rm -rf build && rollup --config rollup.config.js",
     "build:es": "rm -rf dist && babel src --out-dir dist --copy-files",
     "build": "concurrently \"npm:build:*\"",
-    "postinstall": "$npm_execpath build:es"
+    "prepare": "$npm_exepath install && $npm_execpath build:es"
   },
   "files": [
     "dist",
